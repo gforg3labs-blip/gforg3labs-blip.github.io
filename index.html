@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GForg3Labs</title>
+<title>GForg3Labs | Ghost Forge Labs</title>
 <meta name="description" content="GForg3Labs (Ghost Forge Labs) is an independent app studio building calm, useful apps in Urdu, Arabic and English.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,14 +31,15 @@ p{margin:0 0 14px;max-width:66ch}
 nav{position:sticky;top:0;z-index:5;background:var(--char);border-bottom:1px solid #2e2c2c;color:#fff;padding:12px max(5vw,16px)}
 nav .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px}
 .logo{font-family:Montserrat,sans-serif;font-weight:700;font-size:20px;text-decoration:none;display:flex;align-items:center;gap:10px}
-.logo svg{width:26px;height:30px}.o{color:#e2671f}
+.logo svg{width:26px;height:30px}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.o{color:#e2671f}
 nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 22px}
 nav ul a{text-decoration:none;font-weight:500;padding:8px 0;display:inline-block;border-bottom:2px solid transparent}
 nav ul a:hover,nav ul a:focus-visible{border-color:#e2671f;outline:none}
 .hero{background:var(--char);color:#fff;padding-top:clamp(20px,3vw,40px);padding-bottom:0}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,4vw,56px);align-items:end}
 .hero h1{font-size:clamp(44px,7vw,84px);line-height:1}
-.tag{font-size:clamp(18px,2vw,22px);font-weight:600;margin:16px 0 18px}
+.full{font-family:Montserrat,Inter,sans-serif;font-weight:700;font-size:clamp(20px,2.6vw,28px);color:#e2671f;margin-top:10px;letter-spacing:.01em}
+.tag{font-size:clamp(18px,2vw,22px);font-weight:600;margin:14px 0 18px}
 .hero p{color:#fff;opacity:.92;font-size:17px}
 .hero .copy{padding-bottom:clamp(36px,5vw,72px)}
 .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
@@ -93,7 +94,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
 <body>
 <nav aria-label="Main">
   <div class="wrap">
-    <a class="logo" href="#top"><svg viewBox="0 0 28 32" aria-hidden="true"><path d="M3 29V13a11 11 0 0 1 22 0v16l-4.5-4-3.5 4-3-4-3 4-3.5-4z" fill="none" stroke="#e2671f" stroke-width="3" stroke-linejoin="round"/><circle cx="10" cy="14" r="2.2" fill="#e2671f"/><circle cx="18" cy="14" r="2.2" fill="#e2671f"/></svg><span>GForg<span class="o">3</span>Labs</span></a>
+    <a class="logo" href="#top"><svg viewBox="0 0 28 32" aria-hidden="true"><path d="M3 29V13a11 11 0 0 1 22 0v16l-4.5-4-3.5 4-3-4-3 4-3.5-4z" fill="none" stroke="#e2671f" stroke-width="3" stroke-linejoin="round"/><circle cx="10" cy="14" r="2.2" fill="#e2671f"/><circle cx="18" cy="14" r="2.2" fill="#e2671f"/></svg><span>GForg<span class="o">3</span>Labs</span><span class="sr">Ghost Forge Labs</span></a>
     <ul>
       <li><a href="#apps">Apps</a></li>
       <li><a href="#about">About</a></li>
@@ -107,6 +108,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
   <div class="wrap">
     <div class="copy">
       <h1>GForg<span class="o">3</span>Labs</h1>
+      <div class="full">Ghost Forge Labs</div>
       <div class="tag">Amplifying human creativity with AI</div>
       <p>An independent app studio making calm, useful apps for everyday life, in Urdu, Arabic and English. Our first apps help Muslim families read the Quran and keep their prayers on time.</p>
       <div class="btns">
