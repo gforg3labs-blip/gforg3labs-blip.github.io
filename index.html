@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GForg3Labs</title>
+<meta name="description" content="GForg3Labs (Ghost Forge Labs) is an independent app studio building calm, useful apps in Urdu, Arabic and English.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: a small studio's website in its own brand, confident and warm, everything written out
+   IDEA a forge: apps hammered into shape on an anvil, finished ones shipped, others still on it
+   PICTURE three real-looking phones standing on a glowing anvil: Quran Al-Kareem, Salah, the senior app
+   COLOUR brand charcoal and white with the logo's burnt orange as the one accent
+   TYPE Montserrat 800 close to the wordmark + Inter for text
+   LAYOUT laptop: red band with name and text left, forge picture filling the right; phone: name, picture, text */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#121116);--ink:light-dark(#16141b,#f1eee9);--soft:light-dark(#5a5661,#b4afb9);--line:light-dark(#e6e2dc,#2a2830);--red:light-dark(#d9601e,#e8732f);--char:#1d1c1c;--steel:light-dark(#1d1c1c,#0b0a0a);--panel:light-dark(#f6f3ef,#1b1a20);--spark:#ff9a4d}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:Montserrat,Inter,sans-serif;letter-spacing:-.02em;line-height:1.1;margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,4vw,40px)}
+h3{font-size:20px}
+p{margin:0 0 14px;max-width:66ch}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(36px,5vw,72px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+nav{position:sticky;top:0;z-index:5;background:var(--char);border-bottom:1px solid #2e2c2c;color:#fff;padding:12px max(5vw,16px)}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px}
+.logo{font-family:Montserrat,sans-serif;font-weight:700;font-size:20px;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo svg{width:26px;height:30px}.o{color:#e2671f}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 22px}
+nav ul a{text-decoration:none;font-weight:500;padding:8px 0;display:inline-block;border-bottom:2px solid transparent}
+nav ul a:hover,nav ul a:focus-visible{border-color:#e2671f;outline:none}
+.hero{background:var(--char);color:#fff;padding-top:clamp(20px,3vw,40px);padding-bottom:0}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,4vw,56px);align-items:end}
+.hero h1{font-size:clamp(44px,7vw,84px);line-height:1}
+.tag{font-size:clamp(18px,2vw,22px);font-weight:600;margin:16px 0 18px}
+.hero p{color:#fff;opacity:.92;font-size:17px}
+.hero .copy{padding-bottom:clamp(36px,5vw,72px)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid #fff}
+.btn.solid{background:#e2671f;border-color:#e2671f;color:#fff}
+.btn:hover,.btn:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.fig{position:relative;aspect-ratio:600/460;width:100%}
+.fig svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.lead{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 32px;margin-bottom:28px}
+.lead p{color:var(--soft);margin:0}
+.apps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.app{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;align-items:start}
+.icon{width:72px;height:72px;border-radius:18px;display:grid;place-items:center;font-family:Montserrat,sans-serif;font-weight:700;font-size:26px;color:#fff}
+.app p{color:var(--soft);margin:8px 0 12px}
+.status{display:inline-block;font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--red) 14%,transparent);color:var(--red)}
+.status.live{background:color-mix(in srgb,#1f8a4c 16%,transparent);color:light-dark(#17703c,#5fd08f)}
+.facts{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0;padding:0;list-style:none;font-size:14px}
+.facts li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:7px;vertical-align:2px}
+.forge{background:var(--steel);color:#f1eee9;border-top:1px solid #2e2c2c}
+.forge .lead p{color:#b4afb9}
+.soon{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.soon div{border-top:3px solid var(--red);padding-top:16px}
+.soon p{color:#c9c4cd;margin:8px 0 0;font-size:15px}
+.soon h3{font-size:18px}
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:start}
+.pillars{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.pillars li{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.pillars b{display:block;font-size:16px;margin-bottom:2px}
+.pillars span{color:var(--soft);font-size:15px}
+.privacy{background:var(--panel);border-block:1px solid var(--line)}
+.policy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(24px,5vw,72px)}
+.policy aside p{color:var(--soft)}
+.policy h3{font-size:17px;margin:26px 0 8px;font-family:Inter,sans-serif;letter-spacing:0;font-weight:600}
+.policy h3:first-child{margin-top:0}
+.policy ul{margin:0 0 14px;padding-left:20px;max-width:66ch}
+.policy li{margin-bottom:6px}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;background:var(--char);color:#fff;border-radius:22px;padding:clamp(24px,4vw,44px)}
+.contact p{opacity:.92}
+.mail{color:#ff9a4d;font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(17px,2.4vw,24px);overflow-wrap:anywhere}
+.copybtn{min-height:46px;padding:0 20px;border-radius:999px;border:2px solid #e2671f;background:#e2671f;color:#fff;font:600 16px Inter,sans-serif;cursor:pointer}
+.copybtn:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+footer{border-top:1px solid var(--line);color:var(--soft);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px}
+@media(max-width:900px){.apps{grid-template-columns:minmax(0,1fr)}.soon{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){.hero .wrap,.about,.policy,.contact{grid-template-columns:minmax(0,1fr)}.hero .copy{padding-bottom:8px}.hero .fig{order:2}}
+@media(max-width:480px){.app{grid-template-columns:minmax(0,1fr)}nav ul{gap:2px 16px;font-size:15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sp{animation:none!important}}
+.sp{animation:flick 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes flick{0%,100%{opacity:1}50%{opacity:.25}}
+</style>
+</head>
+<body>
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top"><svg viewBox="0 0 28 32" aria-hidden="true"><path d="M3 29V13a11 11 0 0 1 22 0v16l-4.5-4-3.5 4-3-4-3 4-3.5-4z" fill="none" stroke="#e2671f" stroke-width="3" stroke-linejoin="round"/><circle cx="10" cy="14" r="2.2" fill="#e2671f"/><circle cx="18" cy="14" r="2.2" fill="#e2671f"/></svg><span>GForg<span class="o">3</span>Labs</span></a>
+    <ul>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="band hero" id="top">
+  <div class="wrap">
+    <div class="copy">
+      <h1>GForg<span class="o">3</span>Labs</h1>
+      <div class="tag">Amplifying human creativity with AI</div>
+      <p>An independent app studio making calm, useful apps for everyday life, in Urdu, Arabic and English. Our first apps help Muslim families read the Quran and keep their prayers on time.</p>
+      <div class="btns">
+        <a class="btn solid" href="#apps">See our apps</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="fig" role="img" aria-label="Three phones standing on an anvil with sparks: Quran Al-Kareem, Salah prayer times, and a senior calling app">
+      <svg viewBox="0 0 600 460" preserveAspectRatio="xMidYMax meet">
+        <defs>
+          <linearGradient id="anv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#57545c"/><stop offset="1" stop-color="#2a2829"/></linearGradient>
+          <linearGradient id="scr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf6ea"/><stop offset="1" stop-color="#f1e9d6"/></linearGradient>
+          <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2671f" stop-opacity=".6"/><stop offset="1" stop-color="#e2671f" stop-opacity="0"/></linearGradient>
+          <g id="ln"><rect width="96" height="5" rx="2.5" fill="#1b2a5c" opacity=".78"/></g>
+        </defs>
+        <ellipse cx="300" cy="300" rx="250" ry="70" fill="url(#glow)"/>
+        <!-- anvil -->
+        <path d="M70 318h420c-4 18-30 30-66 32H364l-6 34c22 6 44 18 52 40H190c8-22 30-34 52-40l-6-34h-88c-50-2-74-14-78-32z" fill="url(#anv)"/>
+        <path d="M70 318h420c-1 5-4 9-9 12H79c-5-3-8-7-9-12z" fill="#7a7680"/>
+        <path d="M190 424h220v14H190z" fill="#0f0e13"/>
+        <!-- phone: senior app -->
+        <g transform="translate(398 96) rotate(7)">
+          <rect width="128" height="232" rx="20" fill="#121111" stroke="#4a4747" stroke-width="2"/>
+          <rect x="7" y="9" width="114" height="214" rx="14" fill="#fff"/>
+          <g id="tiles">
+            <rect x="15" y="22" width="47" height="56" rx="9" fill="#f2c9a7"/><rect x="66" y="22" width="47" height="56" rx="9" fill="#a9d3c9"/>
+            <rect x="15" y="84" width="47" height="56" rx="9" fill="#c7c1ea"/><rect x="66" y="84" width="47" height="56" rx="9" fill="#f6d77d"/>
+          </g>
+          <circle cx="38" cy="44" r="10" fill="#8a5a3c"/><circle cx="89" cy="44" r="10" fill="#3e6f64"/><circle cx="38" cy="106" r="10" fill="#5b4f9c"/><circle cx="89" cy="106" r="10" fill="#9a7414"/>
+          <rect x="22" y="62" width="32" height="6" rx="3" fill="#16151b" opacity=".6"/><rect x="73" y="62" width="32" height="6" rx="3" fill="#16151b" opacity=".6"/>
+          <rect x="22" y="124" width="32" height="6" rx="3" fill="#16151b" opacity=".6"/><rect x="73" y="124" width="32" height="6" rx="3" fill="#16151b" opacity=".6"/>
+          <rect x="15" y="150" width="98" height="58" rx="12" fill="#d4371c"/>
+          <text x="64" y="187" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="22" fill="#fff">SOS</text>
+        </g>
+        <!-- phone: Salah -->
+        <g transform="translate(64 108) rotate(-8)">
+          <rect width="128" height="226" rx="20" fill="#121111" stroke="#4a4747" stroke-width="2"/>
+          <rect x="7" y="9" width="114" height="208" rx="14" fill="#0f5b52"/>
+          <text x="64" y="40" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="15" fill="#fff">Salah</text>
+          <text x="64" y="62" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#cfe9e3">Asr in 1:24:10</text>
+          <g font-family="Inter,sans-serif" font-size="10.5" fill="#fff">
+            <rect x="15" y="74" width="98" height="22" rx="6" fill="#ffffff" opacity=".08"/><text x="23" y="89">Fajr</text><text x="105" y="89" text-anchor="end">4:52</text>
+            <rect x="15" y="100" width="98" height="22" rx="6" fill="#ffffff" opacity=".08"/><text x="23" y="115">Dhuhr</text><text x="105" y="115" text-anchor="end">11:38</text>
+            <rect x="15" y="126" width="98" height="22" rx="6" fill="#ff9a4d"/><text x="23" y="141" fill="#16151b" font-weight="600">Asr</text><text x="105" y="141" text-anchor="end" fill="#16151b" font-weight="600">2:41</text>
+            <rect x="15" y="152" width="98" height="22" rx="6" fill="#ffffff" opacity=".08"/><text x="23" y="167">Maghrib</text><text x="105" y="167" text-anchor="end">5:01</text>
+            <rect x="15" y="178" width="98" height="22" rx="6" fill="#ffffff" opacity=".08"/><text x="23" y="193">Isha</text><text x="105" y="193" text-anchor="end">6:31</text>
+          </g>
+        </g>
+        <!-- phone: Quran Al-Kareem (front) -->
+        <g transform="translate(222 52)">
+          <rect width="156" height="272" rx="24" fill="#121111" stroke="#4a4747" stroke-width="2"/>
+          <rect x="8" y="10" width="140" height="252" rx="17" fill="url(#scr)"/>
+          <rect x="18" y="22" width="120" height="30" rx="8" fill="#1b2a5c"/>
+          <rect x="44" y="33" width="68" height="8" rx="4" fill="#d8b25a"/>
+          <g transform="translate(30 66)">
+            <use href="#ln"/><use href="#ln" y="18"/><use href="#ln" y="36"/><use href="#ln" y="54"/><use href="#ln" y="72"/>
+            <use href="#ln" y="90"/><use href="#ln" y="108"/><use href="#ln" y="126"/><use href="#ln" y="144"/>
+          </g>
+          <circle cx="104" cy="104" r="5" fill="none" stroke="#d8b25a" stroke-width="2"/>
+          <circle cx="58" cy="176" r="5" fill="none" stroke="#d8b25a" stroke-width="2"/>
+          <rect x="18" y="226" width="120" height="26" rx="13" fill="#1b2a5c"/>
+          <path d="M72 233l12 6-12 6z" fill="#fff"/>
+        </g>
+        <!-- sparks -->
+        <g fill="#ff9a4d">
+          <circle class="sp" cx="210" cy="300" r="3.5"/><circle class="sp" cx="392" cy="296" r="3" style="animation-delay:.4s"/>
+          <circle class="sp" cx="180" cy="270" r="2.5" style="animation-delay:.8s"/><circle class="sp" cx="420" cy="262" r="2.5" style="animation-delay:1.1s"/>
+          <circle class="sp" cx="300" cy="22" r="3" style="animation-delay:.6s"/><circle class="sp" cx="560" cy="120" r="2.5" style="animation-delay:.2s"/>
+          <circle class="sp" cx="40" cy="150" r="2.5" style="animation-delay:1.3s"/>
+        </g>
+        <g stroke="#ff9a4d" stroke-width="3" stroke-linecap="round">
+          <path class="sp" d="M200 312l-22 10"/><path class="sp" d="M402 312l22 10" style="animation-delay:.5s"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="band" id="apps">
+  <div class="wrap">
+    <div class="lead">
+      <h2>Our apps</h2>
+      <p>Built in Flutter for Android first, with iPhone versions on the way.</p>
+    </div>
+    <div class="apps">
+      <article class="app">
+        <div class="icon" style="background:#1b2a5c" aria-hidden="true">ق</div>
+        <div>
+          <h3>Quran Al-Kareem</h3>
+          <span class="status">Closed testing on Google Play</span>
+          <p>The Madinah Mushaf, page by page, with a translation under every line, so you never lose your place in the Arabic text.</p>
+          <ul class="facts">
+            <li>Urdu and English translations</li>
+            <li>Recitation with verse highlighting</li>
+            <li>Works offline</li>
+            <li>Follows your phone's font size</li>
+          </ul>
+        </div>
+      </article>
+      <article class="app">
+        <div class="icon" style="background:#0f5b52" aria-hidden="true">ص</div>
+        <div>
+          <h3>Salah: Prayer Times &amp; Qibla</h3>
+          <span class="status">Coming soon to Google Play</span>
+          <p>Accurate prayer times for where you are, the Adhan at each prayer, and a Qibla pointer that is easy to follow.</p>
+          <ul class="facts">
+            <li>Free, no ads</li>
+            <li>No personal data recorded</li>
+            <li>Home screen widgets</li>
+            <li>Battery friendly</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band forge">
+  <div class="wrap">
+    <div class="lead">
+      <h2>On the anvil</h2>
+      <p>Apps we are building now.</p>
+    </div>
+    <div class="soon">
+      <div><h3>Senior assist app</h3><p>Voice calling, automatic answering for family, and one-press SOS for elderly, blind and low-vision people. Urdu first, with Arabic and English.</p></div>
+      <div><h3>Markhor Nation</h3><p>A fitness app with personal training and diet plans built around your body and your goals.</p></div>
+      <div><h3>Hadith app</h3><p>Authentic hadith of the Prophet ﷺ, collected in one easy-to-read app.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="about">
+  <div class="wrap about">
+    <div>
+      <h2>About GForg3Labs</h2>
+      <p style="margin-top:18px">GForg3Labs, short for Ghost Forge Labs, was founded by Mohammad Omar Hayat to build the apps he wanted for his own family: a Quran reader that keeps the translation beside the Arabic, prayer times that just work, and a phone that elderly parents can use without help.</p>
+      <p>We use AI to design, write and test our apps faster, and we keep a person in charge of every decision. We work across Pakistan and Saudi Arabia, and design every app for Urdu, Arabic and English speakers.</p>
+    </div>
+    <ul class="pillars">
+      <li><b>Easy for every age</b><span>Large controls, clear text and support for the phone's own font size, so parents and grandparents can use our apps too.</span></li>
+      <li><b>Respect for your privacy</b><span>We collect as little as possible and never sell personal data.</span></li>
+      <li><b>Works when the internet doesn't</b><span>Core features keep working offline once content is downloaded.</span></li>
+      <li><b>Made for our region</b><span>Urdu, Arabic and English from the start, not added later.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band privacy" id="privacy">
+  <div class="wrap policy">
+    <aside>
+      <h2>Privacy policy</h2>
+      <p style="margin-top:18px">This policy covers all apps published by GForg3Labs (Ghost Forge Labs), including Quran Al-Kareem and Salah: Prayer Times &amp; Qibla.</p>
+      <p>Last updated: 21 November 2026</p>
+    </aside>
+    <div>
+      <h3>Information we collect</h3>
+      <p>Our apps are designed to work without an account. We do not ask for your name, phone number or email inside the apps.</p>
+      <ul>
+        <li><b>Location (Salah):</b> used on your device to calculate prayer times and the Qibla direction. It is not sent to our servers or stored by us.</li>
+        <li><b>Settings, bookmarks and downloads:</b> kept on your device only. Deleting the app removes them.</li>
+        <li><b>Downloaded content:</b> Quran text, translations, fonts and recitations are downloaded from public sources. These services may see your device's IP address, as with any download.</li>
+        <li><b>Feedback:</b> if you email us, we receive your email address and message and use them only to reply.</li>
+      </ul>
+      <h3>How we use information</h3>
+      <p>Only to provide the app's features and to answer your messages. We do not show ads, sell personal data or share it with advertisers.</p>
+      <h3>Crash reports and app statistics</h3>
+      <p>Google Play and Apple may give us anonymous crash reports and download statistics. These do not identify you.</p>
+      <h3>Children</h3>
+      <p>Our apps are suitable for all ages. We do not knowingly collect personal information from children.</p>
+      <h3>Your choices</h3>
+      <p>You can turn off location access in your phone's settings at any time and enter your city by hand instead. You can ask us to delete any email you have sent us.</p>
+      <h3>Changes to this policy</h3>
+      <p>If we change this policy, we will update the date above. Apps that add new features using personal data will explain them in the app first.</p>
+      <h3>Contact</h3>
+      <p>Questions about privacy: <a href="mailto:gforg3labs@gmail.com">gforg3labs@gmail.com</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="wrap contact">
+    <div>
+      <h2>Get in touch</h2>
+      <p style="margin-top:14px">Feedback, support, or want to test our apps before release? Email us and we'll reply.</p>
+      <div class="mail">gforg3labs@gmail.com</div>
+    </div>
+    <button class="copybtn" id="copyMail" type="button">Copy email</button>
+  </div>
+</section>
+</main>
+
+<footer class="band" style="padding-block:24px">
+  <div class="wrap">
+    <span>© 2026 Ghost Forge Labs (GForg3Labs). All rights reserved.</span>
+    <span><a href="#privacy">Privacy policy</a> · <a href="#contact">Contact</a></span>
+  </div>
+</footer>
+
+<script>
+{
+  const b = document.getElementById('copyMail');
+  b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText('gforg3labs@gmail.com'); b.textContent = 'Copied'; }
+    catch (e) { b.textContent = 'Select the email above'; }
+    setTimeout(() => { b.textContent = 'Copy email'; }, 2200);
+  });
+}
+</script>
+</body>
+</html>
